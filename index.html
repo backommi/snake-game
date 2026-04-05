@@ -152,17 +152,18 @@
         /* Mobile controls */
         .mobile-controls {
             display: none;
-            margin-top: 20px;
+            margin: 15px auto 10px;
             gap: 8px;
         }
 
         .mobile-controls button {
-            width: 55px;
-            height: 55px;
-            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
             padding: 0;
             background: linear-gradient(135deg, #00ff88, #00cc6a);
             box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4);
+            border-radius: 12px;
         }
 
         .mobile-controls button:active {
@@ -171,16 +172,15 @@
 
         @media (max-width: 768px) {
             .mobile-controls {
-                display: grid !important;
-                grid-template-columns: repeat(3, 55px);
-                grid-template-rows: repeat(2, 55px);
-                margin: 15px auto;
+                display: flex !important;
+                justify-content: center;
+                flex-wrap: wrap;
+                max-width: 200px;
             }
 
-            .mobile-controls button:nth-child(1) { grid-column: 2; grid-row: 1; }
-            .mobile-controls button:nth-child(2) { grid-column: 1; grid-row: 2; }
-            .mobile-controls button:nth-child(3) { grid-column: 2; grid-row: 2; }
-            .mobile-controls button:nth-child(4) { grid-column: 3; grid-row: 2; }
+            .mobile-controls button {
+                margin: 4px;
+            }
         }
 
         .instructions {
@@ -207,13 +207,6 @@
 
     <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-    <div class="mobile-controls">
-        <button onclick="setDirection('up')">⬆️</button>
-        <button onclick="setDirection('left')">⬅️</button>
-        <button onclick="setDirection('down')">⬇️</button>
-        <button onclick="setDirection('right')">➡️</button>
-    </div>
-
     <div class="controls">
         <button id="startBtn" onclick="startGame()">开始游戏</button>
         <button id="pauseBtn" class="secondary" onclick="togglePause()" disabled>暂停</button>
@@ -227,6 +220,13 @@
             <option value="medium" selected>中等</option>
             <option value="hard">困难</option>
         </select>
+    </div>
+
+    <div class="mobile-controls">
+        <button onclick="setDirection('up')">⬆️</button>
+        <button onclick="setDirection('left')">⬅️</button>
+        <button onclick="setDirection('down')">⬇️</button>
+        <button onclick="setDirection('right')">➡️</button>
     </div>
 
     <p class="instructions">
