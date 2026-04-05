@@ -172,26 +172,19 @@
 
         @media (max-width: 768px) {
             .mobile-controls {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 1fr);
-                gap: 8px;
-                width: 180px;
+                display: flex !important;
+                justify-content: center;
+                gap: 10px;
                 margin: 15px auto;
+                flex-wrap: nowrap;
             }
 
             .mobile-controls button {
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-                justify-self: center;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                flex-shrink: 0;
             }
-
-            /* 十字形布局：上在中间上排，左下右在下排 */
-            .mobile-controls button:first-child { grid-column: 2; grid-row: 1; }
-            .mobile-controls button:nth-of-type(2) { grid-column: 1; grid-row: 2; }
-            .mobile-controls button:nth-of-type(3) { grid-column: 2; grid-row: 2; }
-            .mobile-controls button:last-child { grid-column: 3; grid-row: 2; }
         }
 
         .instructions {
