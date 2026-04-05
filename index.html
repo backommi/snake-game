@@ -172,19 +172,26 @@
 
         @media (max-width: 768px) {
             .mobile-controls {
-                display: flex !important;
-                justify-content: center;
-                flex-wrap: wrap;
-                max-width: 220px;
-                margin: 10px auto;
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 8px;
+                width: 180px;
+                margin: 15px auto;
             }
 
             .mobile-controls button {
-                margin: 5px;
                 width: 55px;
                 height: 55px;
                 font-size: 1.3rem;
+                justify-self: center;
             }
+
+            /* 十字形布局：上在中间上排，左下右在下排 */
+            .mobile-controls button:nth-child(1) { grid-column: 2; grid-row: 1; }
+            .mobile-controls button:nth-child(2) { grid-column: 1; grid-row: 2; }
+            .mobile-controls button:nth-child(3) { grid-column: 2; grid-row: 2; }
+            .mobile-controls button:nth-child(4) { grid-column: 3; grid-row: 2; }
         }
 
         .instructions {
